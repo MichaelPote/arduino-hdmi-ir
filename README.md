@@ -1,6 +1,6 @@
-# Arduino HDMI CEC to AV Reciever Bridge
+# Arduino HDMI CEC to AV Receiver Bridge
 
-This is an Arduino project which links my non-CEC Onkyo AV Reciever to my LG SmartTV which has CEC / ARC over HDMI so that I can control the reciever from my LG's tv remote.
+This is an Arduino project which links my non-CEC Onkyo TX-SR307 AV Receiver to my LG SmartTV which has CEC / ARC over HDMI so that I can control the reciever from my LG's tv remote.
 
 The project uses the [Arduino CEC Library](https://github.com/lucadentella/ArduinoLib_CEClient) based on [the work of Florian Echtler](https://github.com/floe/CEC)
 
