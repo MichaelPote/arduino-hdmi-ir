@@ -5,7 +5,7 @@ Meaning 560us = 8960 clock cycles.
 / 64 = 140
 
 
-Remote Codes
+Remote Codes for Onkyo AV Reciever TX-SR307
 
 POWER:
 Address: 0x6CD2
