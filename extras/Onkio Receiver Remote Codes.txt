@@ -1,0 +1,57 @@
+Each clock cycle is (1/16) microseconds.
+Meaning 560us = 8960 clock cycles.
+/ 8 = 1120
+/ 32 = 280
+/ 64 = 140
+
+
+Remote Codes
+
+POWER:
+Address: 0x6CD2
+Command: 0xCB
+
+
+VOL UP:
+Address: 0x6DD2
+Command: 0x2
+
+VOL DOWN:
+Address: 0x6DD2
+Command: 0x3
+
+
+MUTE:
+Address: 0x6DD2
+Command: 0x5
+
+CYCLE DIM BRIGHTNESS:
+Address: 0x6DD2
+Command: 0x95
+
+SWAP DISPLAY:
+Address: 0x6CD2
+Command: 0x55
+
+PLAYBACK: MOVIE/TV
+Address: 0xACD2
+Command: 0xD0
+
+PLAYBACK: MUSIC
+Address: 0xACD2
+Command: 0xD1
+
+PLAYBACK: GAME
+Address: 0xACD2
+Command: 0xD2
+
+PLAYBACK: STEREO
+Address: 0x6CD2
+Command: 0x4C
+
+
+Repeat last command:
+Address: 0xFFFF
+Command: 0x0
+
+

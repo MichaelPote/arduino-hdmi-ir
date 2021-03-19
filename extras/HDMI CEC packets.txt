@@ -1,0 +1,375 @@
+HDMI ARC Starting....
+HDMI ARC Listening..
+Packet received at 2233: 05 -> 00: 50:C0
+Packet received at 2466: 05 -> 00: 50:C0
+Packet received at 7930: 00 -> 15: 0F:87:00:E0:91 - Vendor ID - 57489
+Packet received at 8552: 05 -> 00: 50:C0
+Packet received at 8785: 05 -> 00: 50:C0
+Packet received at 14871: 05 -> 00: 50:C0
+Packet received at 15105: 05 -> 00: 50:C0
+Packet received at 18025: 00 -> 15: 0F:87:00:E0:91 - Vendor ID
+Packet received at 21151: 05 -> 00: 50:C0
+Packet received at 21386: 05 -> 00: 50:C0
+Packet received at 27470: 05 -> 00: 50:C0
+Packet received at 27705: 05 -> 00: 50:C0
+Packet received at 28119: 00 -> 15: 0F:87:00:E0:91 - Vendor ID
+Packet received at 33693: 05 -> 00: 50:C0
+Packet received at 33927: 05 -> 00: 50:C0
+Packet received at 38213: 00 -> 15: 0F:87:00:E0:91
+Packet received at 40364: 00 -> 15: 0F:87:00:E0:91
+Packet received at 40504: 00 -> 15: 0F:87:00:E0:91
+Packet received at 40645: 00 -> 15: 0F:87:00:E0:91
+Packet received at 40785: 00 -> 15: 0F:87:00:E0:91
+Packet received at 40875: 05 -> 00: 50:72:01 - Set System Audio Status = 01 = ON 00 = OFF
+Packet received at 41266: 00 -> 05: 05 - TV To Audio System Polling Message PING
+Packet received at 41333: 00 -> 05: 05:8C - TV Request Vendor ID of Audio System
+Packet received at 41467: 05 -> 15: 5F:87:45:58:50 - Audio system broadcast Vendor ID 4544592
+Packet received at 41556: 00 -> 05: 05:8F - TV to Audio Request Device Status
+Packet received at 41645: 05 -> 00: 50:90:00 - Audio to TV = 00 = I'm ON
+Packet received at 41733: 00 -> 05: 05:46 - TV to Audio Tell me your Name
+Packet received at 42081: 05 -> 00: 50:47:41:75:64:69:6F:20:53:79:73:74:65:6D - TV my name is "Audio System"
+Packet received at 42169: 00 -> 05: 05:83 - TV to audio tell me your physical address
+Packet received at 42303: 05 -> 15: 5F:84:20:00:05 - Audio broadcast - Physical address is 2.0.0.0 Device type Audio System
+Packet received at 42568: 00 -> 05: 05:8F - Dev status?
+Packet received at 42657: 05 -> 00: 50:90:00 - ON
+Packet received at 43158: 00 -> 05: 05:C3 ?
+Packet received at 43274: 00 -> 15: 0F:86:20:00 - Set stream path to 2.0.0.0
+Packet received at 43421: 00 -> 05: 05:C3 ?
+Packet received at 43581: 05 -> 15: 5F:72:01 - Audio broadcast System Audio Status = ON
+Packet received at 44430: 05 -> 00: 50:C0
+Packet received at 44518: 00 -> 05: 05:C1
+Packet received at 44868: 00 -> 05: 05:A4:01:02:07:0A - ?
+Packet received at 45002: 05 -> 00: 50:A3:09:7F:07 - ?
+Packet received at 45065: 00 -> 05: 05:7D - TV to Audio - Give system audio mode status
+Packet received at 45152: 05 -> 00: 50:7E:01 - Audio to TV - System audio status = ON
+Packet received at 45215: 00 -> 05: 05:8F - Dev status?
+Packet received at 45301: 05 -> 00: 50:90:00 - ON
+Packet received at 45413: 00 -> 05: 05:70:00:00 - TV to Audio I want to use you for audio.
+Packet received at 45838: 00 -> 15: 0F:87:00:E0:91 - Vendor ID
+Packet received at 47997: 00 -> 15: 0F:87:00:E0:91
+Packet received at 48138: 00 -> 15: 0F:87:00:E0:91
+Packet received at 48278: 00 -> 15: 0F:87:00:E0:91
+Packet received at 48419: 00 -> 15: 0F:87:00:E0:91
+Packet received at 48548: 00 -> 05: 05
+Packet received at 50515: 05 -> 00: 50:C0 ?
+Packet received at 50604: 00 -> 05: 05:C1 ?
+Packet received at 50954: 00 -> 05: 05:A4:01:02:07:0A -?
+Packet received at 51089: 05 -> 00: 50:A3:09:7F:07 -?
+Packet received at 51152: 00 -> 05: 05:7D - Dev stat
+Packet received at 51239: 05 -> 00: 50:7E:01 - Dev ON
+Packet received at 51329: 00 -> 05: 05:71 - TV to audio - give me your audio status...
+Packet received at 51415: 05 -> 00: 50:7A:64 - Audio to TV - Mute off, vol = 100;
+Packet received at 56726: 05 -> 00: 50:C0
+Packet received at 56814: 00 -> 05: 05:C1
+Packet received at 57164: 00 -> 05: 05:A4:01:02:07:0A
+Packet received at 57297: 05 -> 00: 50:A3:09:7F:07
+Packet received at 57361: 00 -> 05: 05:7D - Dev Stat
+Packet received at 57448: 05 -> 00: 50:7E:01 - Dev On
+Packet received at 57536: 00 -> 05: 05:71 - Give audio status
+Packet received at 57623: 05 -> 00: 50:7A:64 - Mute off, vol = 100
+Packet received at 62935: 05 -> 00: 50:C0
+Packet received at 62999: 00 -> 05: 05:C1
+Packet received at 63150: 00 -> 15: 0F:87:00:E0:91
+Packet received at 63291: 00 -> 15: 0F:87:00:E0:91
+Packet received at 63457: 00 -> 05: 05:A4:01:02:07:0A -?
+Packet received at 63592: 05 -> 00: 50:A3:09:7F:07
+Packet received at 63727: 00 -> 15: 0F:87:00:E0:91
+Packet received at 63796: 00 -> 05: 05:7D
+Packet received at 63885: 05 -> 00: 50:7E:01
+Packet received at 64019: 00 -> 15: 0F:87:00:E0:91
+Packet received at 64089: 00 -> 05: 05:71 - audio status
+Packet received at 64175: 05 -> 00: 50:7A:64 - mute off vol = 100
+Packet received at 64214: 00 -> 05: 05
+Packet received at 66945: 00 -> 05: 05:44:41 - User control pressed - VOLUME UP
+Packet received at 67172: 00 -> 05: 05:45 - User control released
+Packet received at 67440: 05 -> 00: 50:7A:64 - mute off vol = 100
+Packet received at 68547: 00 -> 05: 05:44:41 - VOL UP
+Packet received at 68773: 00 -> 05: 05:45 - Release
+Packet received at 68980: 05 -> 00: 50:C0
+Packet received at 69068: 00 -> 05: 05:C1
+Packet received at 69245: 05 -> 00: 50:7A:64 - mute off vol = 100
+Packet received at 69430: 00 -> 05: 05:A4:01:02:07:0A
+Packet received at 69565: 05 -> 00: 50:A3:09:7F:07
+Packet received at 69628: 00 -> 05: 05:7D
+Packet received at 69715: 05 -> 00: 50:7E:01
+Packet received at 69804: 00 -> 05: 05:71
+Packet received at 69890: 05 -> 00: 50:7A:64 - mute off vol = 100
+Packet received at 71394: 00 -> 05: 05:44:41
+Packet received at 71620: 00 -> 05: 05:45
+Packet received at 71884: 05 -> 00: 50:7A:64
+Packet received at 73093: 00 -> 05: 05:44:41
+Packet received at 73319: 00 -> 05: 05:45
+Packet received at 73661: 05 -> 00: 50:7A:64
+Packet received at 74272: 00 -> 05: 05:44:41
+Packet received at 74498: 00 -> 05: 05:45
+Packet received at 74754: 05 -> 00: 50:7A:64
+Packet received at 75126: 05 -> 00: 50:C0
+Packet received at 75213: 00 -> 05: 05:44:42
+Packet received at 75281: 00 -> 05: 05:C1
+Packet received at 75410: 00 -> 05: 05:45
+Packet received at 75631: 00 -> 05: 05:A4:01:02:07:0A
+Packet received at 75765: 05 -> 00: 50:A3:09:7F:07
+Packet received at 75829: 00 -> 05: 05:7D
+Packet received at 75915: 05 -> 00: 50:7E:01
+Packet received at 76002: 00 -> 05: 05:44:42
+Packet received at 76090: 05 -> 00: 50:7A:63
+Packet received at 76152: 00 -> 05: 05:45
+Packet received at 76221: 00 -> 05: 05:71
+Packet received at 76309: 05 -> 00: 50:7A:62
+Packet received at 76396: 00 -> 05: 05:44:42
+Packet received at 76465: 00 -> 05: 05:45
+Packet received at 77598: 00 -> 05: 05:44:42
+Packet received at 78101: 00 -> 05: 05:44:42
+Packet received at 78271: 05 -> 00: 50:7A:5F
+Packet received at 78451: 00 -> 05: 05:44:42 - VOLUME DOWN
+Packet received at 78804: 00 -> 05: 05:44:42
+Packet received at 79158: 00 -> 05: 05:44:42
+Packet received at 79461: 05 -> 00: 50:7A:5C - Vol = 92
+Packet received at 79548: 00 -> 05: 05:44:42
+Packet received at 79821: 00 -> 05: 05:45
+Packet received at 80156: 05 -> 00: 50:7A:5B
+Packet received at 81984: 00 -> 05: 05:44:41
+Packet received at 82210: 00 -> 05: 05:45
+Packet received at 82486: 00 -> 05: 05:44:41
+Packet received at 82635: 05 -> 00: 50:7A:5D
+Packet received at 82723: 00 -> 05: 05:45
+Packet received at 82987: 00 -> 05: 05:44:41
+Packet received at 83212: 00 -> 05: 05:45
+Packet received at 83486: 00 -> 05: 05:44:41
+Packet received at 83632: 05 -> 00: 50:7A:5F
+Packet received at 83720: 00 -> 05: 05:45
+Packet received at 85191: 00 -> 05: 05:44:42
+Packet received at 85417: 00 -> 05: 05:45
+Packet received at 85692: 00 -> 05: 05:44:42
+Packet received at 85806: 05 -> 00: 50:7A:5D
+Packet received at 85918: 00 -> 05: 05:45
+Packet received at 86192: 00 -> 05: 05:44:42
+Packet received at 86419: 00 -> 05: 05:45
+Packet received at 86798: 05 -> 00: 50:7A:5C
+Packet received at 87929: 00 -> 05: 05:44:42
+Packet received at 88156: 00 -> 05: 05:45
+Packet received at 88430: 00 -> 05: 05:44:42
+Packet received at 88582: 05 -> 00: 50:7A:5A
+Packet received at 88670: 00 -> 05: 05:45
+Packet received at 88931: 00 -> 05: 05:44:42
+Packet received at 89156: 00 -> 05: 05:45
+Packet received at 89574: 05 -> 00: 50:7A:59
+Packet received at 90897: 00 -> 05: 05:44:41
+Packet received at 91123: 00 -> 05: 05:45
+Packet received at 91397: 00 -> 05: 05:44:41
+Packet received at 91557: 05 -> 00: 50:7A:5B
+Packet received at 91623: 00 -> 05: 05:45
+Packet received at 91897: 00 -> 05: 05:44:41
+Packet received at 92124: 00 -> 05: 05:45
+Packet received at 92398: 00 -> 05: 05:44:41
+Packet received at 92550: 05 -> 00: 50:7A:5D
+Packet received at 92638: 00 -> 05: 05:45
+Packet received at 92899: 00 -> 05: 05:44:41
+Packet received at 93124: 00 -> 05: 05:45
+Packet received at 93399: 00 -> 05: 05:44:41
+Packet received at 93534: 05 -> 00: 50:7A:5F
+Packet received at 93625: 00 -> 05: 05:45
+Packet received at 93899: 00 -> 05: 05:44:41
+Packet received at 94125: 00 -> 05: 05:45
+Packet received at 94399: 00 -> 05: 05:44:41
+Packet received at 94518: 05 -> 00: 50:7A:61
+Packet received at 94625: 00 -> 05: 05:45
+Packet received at 94900: 00 -> 05: 05:44:41
+Packet received at 95126: 00 -> 05: 05:45
+Packet received at 95400: 00 -> 05: 05:44:41
+Packet received at 95509: 05 -> 00: 50:7A:63
+Packet received at 95626: 00 -> 05: 05:45
+Packet received at 96961: 00 -> 05: 05:44:42
+Packet received at 97187: 00 -> 05: 05:45
+Packet received at 97592: 05 -> 00: 50:7A:62
+Packet received at 98889: 00 -> 05: 05:44:42
+Packet received at 99116: 00 -> 05: 05:45
+Packet received at 99472: 05 -> 00: 50:7A:61
+Packet received at 100738: 00 -> 05: 05:44:42
+Packet received at 100964: 00 -> 05: 05:45
+Packet received at 101356: 05 -> 00: 50:7A:60
+Packet received at 102356: 00 -> 05: 05:44:42
+Packet received at 102583: 00 -> 05: 05:45
+Packet received at 102942: 05 -> 00: 50:7A:5F
+Packet received at 107900: 00 -> 05: 05:44:42
+Packet received at 108127: 00 -> 05: 05:45
+Packet received at 108481: 05 -> 00: 50:7A:5E
+Packet received at 109689: 00 -> 05: 05:44:42
+Packet received at 109916: 00 -> 05: 05:45
+Packet received at 110268: 05 -> 00: 50:7A:5D
+Packet received at 112757: 00 -> 05: 05:44:42
+Packet received at 112983: 00 -> 05: 05:45
+Packet received at 113370: 05 -> 00: 50:7A:5C
+Packet received at 114545: 00 -> 05: 05:44:42
+Packet received at 114770: 00 -> 05: 05:45
+Packet received at 115128: 05 -> 00: 50:7A:5B
+Packet received at 116104: 00 -> 05: 05:44:42
+Packet received at 116329: 00 -> 05: 05:45
+Packet received at 116603: 00 -> 05: 05:44:42
+Packet received at 116715: 05 -> 00: 50:7A:59
+Packet received at 116831: 00 -> 05: 05:45
+Packet received at 117105: 00 -> 05: 05:44:42
+Packet received at 117331: 00 -> 05: 05:45
+Packet received at 117606: 00 -> 05: 05:44:42
+Packet received at 117707: 05 -> 00: 50:7A:57
+Packet received at 117832: 00 -> 05: 05:45
+Packet received at 120390: 00 -> 05: 05:44:42
+Packet received at 120616: 00 -> 05: 05:45
+Packet received at 121013: 05 -> 00: 50:7A:56
+Packet received at 124118: 00 -> 05: 05:44:42
+Packet received at 124344: 00 -> 05: 05:45
+Packet received at 124782: 05 -> 00: 50:7A:55
+Packet received at 130213: 05 -> 00: 50:C0
+Packet received at 130301: 00 -> 05: 05:C1
+Packet received at 130652: 00 -> 05: 05:A4:01:02:07:0A
+Packet received at 130788: 05 -> 00: 50:A3:09:7F:07
+Packet received at 130850: 00 -> 05: 05:7D
+Packet received at 130938: 05 -> 00: 50:7E:01
+Packet received at 131026: 00 -> 05: 05:71
+Packet received at 131112: 05 -> 00: 50:7A:55
+Packet received at 136423: 05 -> 00: 50:C0
+Packet received at 136487: 00 -> 05: 05:C1
+Packet received at 136838: 00 -> 05: 05:A4:01:02:07:0A
+Packet received at 136973: 05 -> 00: 50:A3:09:7F:07
+Packet received at 137036: 00 -> 05: 05:7D
+Packet received at 137123: 05 -> 00: 50:7E:01
+Packet received at 137212: 00 -> 05: 05:71
+Packet received at 137298: 05 -> 00: 50:7A:55
+Packet received at 139475: 00 -> 15: 0F:87:00:E0:91
+Packet received at 139616: 00 -> 15: 0F:87:00:E0:91
+Packet received at 139756: 00 -> 15: 0F:87:00:E0:91
+Packet received at 139896: 00 -> 15: 0F:87:00:E0:91
+Packet received at 140026: 00 -> 05: 05
+Packet received at 142580: 05 -> 00: 50:C0
+Packet received at 142668: 00 -> 05: 05:C1
+Packet received at 143019: 00 -> 05: 05:A4:01:02:07:0A
+Packet received at 143154: 05 -> 00: 50:A3:09:7F:07
+Packet received at 143217: 00 -> 05: 05:7D
+Packet received at 143304: 05 -> 00: 50:7E:01
+Packet received at 143392: 00 -> 05: 05:71
+Packet received at 143479: 05 -> 00: 50:7A:55
+Packet received at 148791: 05 -> 00: 50:C0
+Packet received at 148854: 00 -> 05: 05:C1
+Packet received at 149204: 00 -> 05: 05:A4:01:02:07:0A
+Packet received at 149340: 05 -> 00: 50:A3:09:7F:07
+Packet received at 149403: 00 -> 05: 05:7D
+Packet received at 149491: 05 -> 00: 50:7E:01
+Packet received at 149579: 00 -> 05: 05:71
+Packet received at 149665: 05 -> 00: 50:7A:55
+Packet received at 154535: 00 -> 15: 0F:87:00:E0:91
+Packet received at 154676: 00 -> 15: 0F:87:00:E0:91
+Packet received at 154817: 00 -> 15: 0F:87:00:E0:91
+Packet received at 154957: 00 -> 15: 0F:87:00:E0:91
+Packet received at 155021: 05 -> 00: 50:C0
+Packet received at 155109: 00 -> 05: 05:C1
+Packet received at 155153: 00 -> 05: 05
+Packet received at 155503: 00 -> 05: 05:A4:01:02:07:0A
+Packet received at 155637: 05 -> 00: 50:A3:09:7F:07
+Packet received at 155744: 00 -> 05: 05:7D
+Packet received at 155831: 05 -> 00: 50:7E:01
+Packet received at 155938: 00 -> 05: 05:71
+Packet received at 156024: 05 -> 00: 50:7A:55
+Packet received at 161049: 05 -> 00: 50:C0
+Packet received at 161138: 00 -> 05: 05:C1
+Packet received at 161488: 00 -> 05: 05:A4:01:02:07:0A
+Packet received at 161622: 05 -> 00: 50:A3:09:7F:07
+Packet received at 161685: 00 -> 05: 05:7D
+Packet received at 161772: 05 -> 00: 50:7E:01
+Packet received at 161860: 00 -> 05: 05:71
+Packet received at 161947: 05 -> 00: 50:7A:55
+Packet received at 167215: 05 -> 00: 50:C0
+Packet received at 167280: 00 -> 05: 05:C1
+Packet received at 167630: 00 -> 05: 05:A4:01:02:07:0A
+Packet received at 167763: 05 -> 00: 50:A3:09:7F:07
+Packet received at 167827: 00 -> 05: 05:7D
+Packet received at 167914: 05 -> 00: 50:7E:01
+Packet received at 168002: 00 -> 05: 05:71
+Packet received at 168089: 05 -> 00: 50:7A:55
+Packet received at 169596: 00 -> 15: 0F:87:00:E0:91
+Packet received at 169737: 00 -> 15: 0F:87:00:E0:91
+Packet received at 169878: 00 -> 15: 0F:87:00:E0:91
+Packet received at 170018: 00 -> 15: 0F:87:00:E0:91
+Packet received at 170148: 00 -> 05: 05
+Packet received at 173399: 05 -> 00: 50:C0
+Packet received at 173462: 00 -> 05: 05:C1
+Packet received at 173812: 00 -> 05: 05:A4:01:02:07:0A
+Packet received at 173946: 05 -> 00: 50:A3:09:7F:07
+Packet received at 174010: 00 -> 05: 05:7D
+Packet received at 174097: 05 -> 00: 50:7E:01
+Packet received at 174185: 00 -> 05: 05:71
+Packet received at 174272: 05 -> 00: 50:7A:55
+Packet received at 179538: 05 -> 00: 50:C0
+Packet received at 179605: 00 -> 05: 05:C1
+Packet received at 179955: 00 -> 05: 05:A4:01:02:07:0A
+Packet received at 180090: 05 -> 00: 50:A3:09:7F:07
+Packet received at 180154: 00 -> 05: 05:7D
+Packet received at 180241: 05 -> 00: 50:7E:01
+Packet received at 180329: 00 -> 05: 05:71
+Packet received at 180416: 05 -> 00: 50:7A:55
+Packet received at 184655: 00 -> 15: 0F:87:00:E0:91
+Packet received at 184797: 00 -> 15: 0F:87:00:E0:91
+Packet received at 184937: 00 -> 15: 0F:87:00:E0:91
+Packet received at 185077: 00 -> 15: 0F:87:00:E0:91
+Packet received at 185207: 00 -> 05: 05
+Packet received at 185735: 05 -> 00: 50:C0
+Packet received at 185886: 00 -> 05: 05:C1
+Packet received at 186235: 00 -> 05: 05:A4:01:02:07:0A
+Packet received at 186371: 05 -> 00: 50:A3:09:7F:07
+Packet received at 186478: 00 -> 05: 05:7D
+Packet received at 186565: 05 -> 00: 50:7E:01
+Packet received at 186672: 00 -> 05: 05:71
+Packet received at 186760: 05 -> 00: 50:7A:55
+Packet received at 191811: 05 -> 00: 50:C0
+Packet received at 191901: 00 -> 05: 05:C1
+Packet received at 192251: 00 -> 05: 05:A4:01:02:07:0A
+Packet received at 192387: 05 -> 00: 50:A3:09:7F:07
+Packet received at 192449: 00 -> 05: 05:7D
+Packet received at 192537: 05 -> 00: 50:7E:01
+Packet received at 192625: 00 -> 05: 05:71
+Packet received at 192712: 05 -> 00: 50:7A:55
+Packet received at 197964: 05 -> 00: 50:C0
+Packet received at 198052: 00 -> 05: 05:C1
+Packet received at 198404: 00 -> 05: 05:A4:01:02:07:0A
+Packet received at 198537: 05 -> 00: 50:A3:09:7F:07
+Packet received at 198600: 00 -> 05: 05:7D
+Packet received at 198686: 05 -> 00: 50:7E:01
+Packet received at 198774: 00 -> 05: 05:71
+Packet received at 198861: 05 -> 00: 50:7A:55
+Packet received at 199716: 00 -> 15: 0F:87:00:E0:91
+Packet received at 199857: 00 -> 15: 0F:87:00:E0:91
+Packet received at 199997: 00 -> 15: 0F:87:00:E0:91
+Packet received at 200137: 00 -> 15: 0F:87:00:E0:91
+Packet received at 200267: 00 -> 05: 05
+Packet received at 204172: 05 -> 00: 50:C0
+Packet received at 204260: 00 -> 05: 05:C1
+Packet received at 204610: 00 -> 05: 05:A4:01:02:07:0A
+Packet received at 204746: 05 -> 00: 50:A3:09:7F:07
+Packet received at 204809: 00 -> 05: 05:7D
+Packet received at 204897: 05 -> 00: 50:7E:01
+Packet received at 204985: 00 -> 05: 05:71
+Packet received at 205071: 05 -> 00: 50:7A:55
+Packet received at 210302: 05 -> 00: 50:C0
+Packet received at 210365: 00 -> 05: 05:C1
+Packet received at 210715: 00 -> 05: 05:A4:01:02:07:0A
+Packet received at 210849: 05 -> 00: 50:A3:09:7F:07
+Packet received at 210912: 00 -> 05: 05:7D
+Packet received at 211000: 05 -> 00: 50:7E:01
+Packet received at 211088: 00 -> 05: 05:71
+Packet received at 211175: 05 -> 00: 50:7A:55
+Packet received at 214778: 00 -> 15: 0F:87:00:E0:91
+Packet received at 214919: 00 -> 15: 0F:87:00:E0:91
+Packet received at 215059: 00 -> 15: 0F:87:00:E0:91
+Packet received at 215199: 00 -> 15: 0F:87:00:E0:91
+Packet received at 215329: 00 -> 05: 05
+Packet received at 216471: 05 -> 00: 50:C0
+Packet received at 216560: 00 -> 05: 05:C1
+Packet received at 216910: 00 -> 05: 05:A4:01:02:07:0A
+Packet received at 217044: 05 -> 00: 50:A3:09:7F:07
+Packet received at 217108: 00 -> 05: 05:7D
+Packet received at 217195: 05 -> 00: 50:7E:01
+Packet received at 217283: 00 -> 05: 05:71
+Packet received at 217370: 05 -> 00: 50:7A:55
+Packet received at 344024: 00 -> 15: 0F:36     TV GOING ON STANDBY
+Packet received at 344092: 00 -> 15: 0F:36
+Packet received at 349239: 05 -> 00: 50:C0
+Packet received at 349472: 05 -> 00: 50:C0
