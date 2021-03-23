@@ -30,10 +30,11 @@ Serial.println("INIT Timer...");
   TCNT1 = 0;  //Clear counter value.
 
   // Initalise timer2 to perform the sending operations:
-  TCCR2A = 0;         //No PWM or pin output.
-  TCCR2B = _BV(CS22); //CS22 -> 1/64 prescaling
+  //Need it to cycle every 0.5625ms = 1777.777hz
+  TCCR2A = _BV(WGM21); //No PWM or pin output, WGM21 -> CTC Mode (Clear timer on compare).
+  TCCR2B = _BV(CS22); // CS22 -> 1/64 prescaling.
   TCNT2 = 0; //Clear counter value.
-  OCR2A = 140;
+  OCR2A = 139; // = 16000000 / (64 * 1785.7142857142858) - 1 (must be <256)
   //TIMSK2 = _BV(OCIE2A); //Enable the Interrupt for counter2 on match with OCR2A.
   
 
@@ -46,17 +47,22 @@ void IRSenderClass::enableSending()
 {
   TIMSK2 = _BV(OCIE2A); //Enable the Interrupt for counter2 on match with OCR2A.
   digitalWriteFast(LED_BUILTIN, true); //Make sure LED is ON.
+  sending = true;
+  //Serial.println("IR ON");
 }
 
 void IRSenderClass::disableSending()
 {
   TIMSK2 = 0; //Disable all Interrupts for counter2.
   digitalWriteFast(LED_BUILTIN, false); //Make sure LED is off.
+  sending = false;
+  //Serial.println("IR OFF");
 }
 
 void IRSenderClass::send(uint16_t address, uint8_t command)
 {
   //https://www.sbprojects.net/knowledge/ir/nec.php
+  //https://techdocs.altium.com/display/FPGA/NEC+Infrared+Transmission+Protocol
   
     LongUnion data;
 
@@ -114,13 +120,14 @@ void IRSenderClass::writeData(uint8_t data[], uint8_t len)
     if (cur == dataReadCursor) break;
   }
   dataWriteCursor = cur;
-  if (dataWriteCursor != dataReadCursor)
-  {
-    dataBuffer[dataWriteCursor] = IR_STATE_NONE;
-    dataWriteCursor++;
-  }
-  
   enableSending();
+
+//  Serial.print("WRITE CURSOR: ");
+//  Serial.print(dataWriteCursor);
+//  Serial.print("  READ CURSOR: ");
+//  Serial.println(dataReadCursor);
+  
+  
   interrupts();
   
 }
@@ -131,7 +138,7 @@ void IRSenderClass::setCommand()
   bool found = false;
   while (cur != dataWriteCursor)
   {
-    if ((dataBuffer[cur] == IR_STATE_HEADER) || (dataBuffer[cur] == IR_STATE_REPEAT))
+    if ((dataBuffer[cur] == IR_STATE_HEADER) || (dataBuffer[cur] == IR_STATE_REPEAT)) //Found the start of a new command.
     {
       found = true;
       dataReadCursor = cur;
@@ -163,31 +170,40 @@ void IRSenderClass::setNextState()
       case IR_STATE_WAIT:
         markTicksLeft = 0;
         totalTicksLeft = commandTicksLeft;
+        //Serial.println("NONE");
       break;
 
       case IR_STATE_HEADER:
         markTicksLeft = TICKS_MARK_HEADER;
         totalTicksLeft = TICKS_TOTAL_HEADER;        
+        //Serial.println("HEADER");
       break;
 
       case IR_STATE_ONE:
         markTicksLeft = TICKS_MARK_ONE;
         totalTicksLeft = TICKS_TOTAL_ONE;
+        //Serial.println("ONE");
+        
       break;
     
       case IR_STATE_ZERO:
         markTicksLeft = TICKS_MARK_ZERO;
         totalTicksLeft = TICKS_TOTAL_ZERO;
+        //Serial.println("ZERO");
       break;
 
       case IR_STATE_TAIL:
         markTicksLeft = TICKS_MARK_TAIL;
-        totalTicksLeft = TICKS_TOTAL_TAIL;
+        //totalTicksLeft = TICKS_TOTAL_TAIL; 
+        totalTicksLeft = commandTicksLeft; //Tail is the last state of the command, set it's length to the total length of the command.
+        //Serial.println("TAIL");
       break;
 
       case IR_STATE_REPEAT:
         markTicksLeft = TICKS_MARK_REPEAT;
         totalTicksLeft = TICKS_TOTAL_REPEAT;
+        //Serial.println("REPEAT");
+        
       break;
       
   }
@@ -202,48 +218,58 @@ void IRSenderClass::setNextState()
 
   dataReadCursor++;
 
+
 /*
-  Serial.println("Data Buffer is now:");
-  for (uint16_t j = 0; j < 100; j++)
+  for (uint16_t j = 0; j < 256; j++)
   {
     if (j == dataReadCursor) Serial.print("R"); else Serial.print(" ");
     if (j == dataWriteCursor) Serial.print("W"); else Serial.print(" ");
     Serial.print(dataBuffer[j]);
   }
   Serial.println();
-  */
+*/
 
 }
 
 void IRSenderClass::tick()
 {
-  if (commandTicksLeft == 0) //This command is finished, OR we're starting a brand new transmit:
-  {
-    DISABLE_PWM;
-    setCommand(); //Load new command if found, or disable timer if not found.
-  }
-  else 
-  {
-    commandTicksLeft--;
-    if (totalTicksLeft > 0) //This state still has ticks left:
+    if (commandTicksLeft > 0)
     {
-      if (markTicksLeft > 0) //This state still has mark ticks left:
+      commandTicksLeft--;
+      if (totalTicksLeft > 0) //This state still has ticks left:
       {
-        markTicksLeft--;
-        if (markTicksLeft == 0)
+        if (markTicksLeft > 0) //This state still has mark ticks left:
         {
-          DISABLE_PWM;
+          markTicksLeft--;
+          if (markTicksLeft == 0)
+          {
+            DISABLE_PWM;
+          }
+        }
+    
+        totalTicksLeft--;
+        if (totalTicksLeft == 0 && commandTicksLeft > 0) //Make sure we are not just ending this command.
+        {
+          setNextState();
         }
       }
+    }
+    else
+    {
+      DISABLE_PWM;
+      setCommand(); //Load new command if found, or disable timer if not found.
+    }
   
-      totalTicksLeft--;
-      if (totalTicksLeft == 0)
-      {
-        setNextState();
-      }
-    }  
-  }
-  
+}
+
+bool IRSenderClass::isSending()
+{
+  bool tmp;
+  noInterrupts();
+  tmp = sending;
+  interrupts();
+
+  return tmp;
 }
 
 ISR(TIMER2_COMPA_vect)          // timer compare interrupt service routine

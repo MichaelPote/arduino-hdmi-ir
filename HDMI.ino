@@ -25,6 +25,7 @@ bool repeatUntilRelease = false;
 uint8_t repeatsLeft = 0;
 bool firstPress = false;
 uint8_t buttonCommand = 0;
+bool irReady = true;
 
 uint16_t timer = 0;
 
@@ -32,24 +33,32 @@ uint16_t timer = 0;
 void sendRemoteCommand(uint16_t aAddress, uint8_t aCommand)
 {
   IRSender.send(aAddress, aCommand);
+  irReady = false;
 }
 
 void sendRemoteRepeat()
 {
   IRSender.sendRepeat();
+  irReady = false;
 }
 
 void pressButton(int btn, bool holdDown)
 {
-  Serial.print("PRESSING BUTTON ");
-  Serial.println(btn);
-  
-  buttonPressed = true;
-  buttonCommand = btn;
-  repeatUntilRelease = holdDown;
-  firstPress = true;
-  repeatsLeft = 4;
-  timer = 0;
+//  Serial.print("PRESSING BUTTON ");
+//  Serial.println(btn);
+  if (buttonPressed && buttonCommand == btn)
+  {
+    repeatsLeft += 2;
+  }
+  else
+  {
+    buttonPressed = true;
+    buttonCommand = btn;
+    repeatUntilRelease = holdDown;
+    firstPress = true;
+    repeatsLeft = 7;
+    timer = 999; //Timer will roll over to 1000, then initiate a check for IR readiness immedately.
+  }  
 }
 
 void onReceiveCEC(int source, int dest, unsigned char* data, int count)
@@ -83,8 +92,11 @@ void onReceiveCEC(int source, int dest, unsigned char* data, int count)
   switch (data[0])
   {
     case 0x36: //TV going to standby
-        pressButton(BTN_POWER, false);
-        powerOn = false;
+      if (powerOn)
+      {
+          pressButton(BTN_POWER, false);
+          powerOn = false;
+      }
     break;
     
     case 0x46: //Give audio name
@@ -102,22 +114,22 @@ void onReceiveCEC(int source, int dest, unsigned char* data, int count)
     break;
 
     case 0x44: //Button pressed
-         if (count > 1)
-         {
-          if (data[1] == 0x41) //VOLUME UP
-          {
-            pressButton(BTN_VOL_UP, true);
-          }
-          else if (data[1] == 0x42) // VOLUME DOWN
-          {
-            pressButton(BTN_VOL_DOWN, true);
-          }
-          else if (data[1] == 0x43) //MUTE
-          {
-            pressButton(BTN_MUTE, false);
-            muteOn = !muteOn;
-          }
-         }
+      if (count > 1)
+      {
+        if (data[1] == 0x41) //VOLUME UP
+        {
+          pressButton(BTN_VOL_UP, true);
+        }
+        else if (data[1] == 0x42) // VOLUME DOWN
+        {
+          pressButton(BTN_VOL_DOWN, true);
+        }
+        else if (data[1] == 0x43) //MUTE
+        {
+          pressButton(BTN_MUTE, false);
+          muteOn = !muteOn;
+        }
+      }
     break;
 
     
@@ -145,77 +157,103 @@ void setup() {
     Serial.println("HDMI Monitoring started.");
     IRSender.begin(IR_PIN);
     Serial.println("IR Sender started.");
-
+    irReady = true;
     digitalWrite(IR_PIN, false);
 }
 
+int longtimer = 0;
 
+char incomingByte;
 
 void loop() {
 
     // run the client
     ceclient.run();
-    
-    if ((timer == 0) && (buttonPressed) && (buttonCommand > 0)) //It's time to do an update
-    { 
-      Serial.print("Sending command! firstPress? ");
-      Serial.print((firstPress ? "YES" : "NO"));
-      Serial.print(" - ");
-      
-      
-      if (firstPress)
-      {
-       
-        switch (buttonCommand)
-        {
-          case BTN_POWER:
-            Serial.print("POWER");
-            sendRemoteCommand(0x6CD2, 0xCB);
-          break;
-          case BTN_VOL_UP:
-            Serial.print("VOLUME UP");
-            sendRemoteCommand(0x6DD2, 0x2);
-          break;
-          case BTN_VOL_DOWN:
-            Serial.print("VOLUME DOWN");
-            sendRemoteCommand(0x6DD2, 0x3);
-          break;
-          case BTN_MUTE:
-            Serial.print("VOLUME MUTE");
-            sendRemoteCommand(0x6DD2, 0x5);
-          break;
-        }
+
+   /* if (Serial.available() > 0) {
+      // read the incoming byte:
+      incomingByte = Serial.read();
+
+      while (Serial.available())
+      { //Clear all subsequent bytes
+        Serial.read();
       }
-      else
+
+      if (incomingByte == 49)
       {
-        if (repeatsLeft > 0)
-        {
-          Serial.print("REPEAT...");
-          //Repeat last command.
-          sendRemoteRepeat();
+        pressButton(BTN_POWER, false);
+      }
+      if (incomingByte == 50)
+      {
+        pressButton(BTN_VOL_UP, true);
+      }
+      if (incomingByte == 51)
+      {
+        buttonPressed = false;
+      }
+
+    }*/
+    
+    if ((irReady) && (buttonPressed)) //It's time to do an update
+    { 
+//      Serial.print("Sending command! firstPress? ");
+//      Serial.print((firstPress ? "YES" : "NO"));
+//      Serial.print(" - ");
+
+      if (repeatsLeft > 0)
+      {
+          switch (buttonCommand)
+          {
+            case BTN_POWER:
+              sendRemoteCommand(0x6CD2, 0xCB);
+//              Serial.print("POWER");
+            break;
+            case BTN_VOL_UP:
+              sendRemoteCommand(0x6DD2, 0x2);
+//              Serial.print("VOLUME UP");
+            break;
+            case BTN_VOL_DOWN:
+              sendRemoteCommand(0x6DD2, 0x3);
+//              Serial.print("VOLUME DOWN");
+            break;
+            case BTN_MUTE:
+              sendRemoteCommand(0x6DD2, 0x5);
+//              Serial.print("VOLUME MUTE");
+            break;
+          }
+
           repeatsLeft--;
+//          Serial.print("REPEAT...");
         }
         else
         {
-          Serial.print("END");
           buttonPressed = false;
           repeatsLeft = 0;
           buttonCommand = 0;
+//          Serial.print("END");
         }
-      }
-
+      
       if (!repeatUntilRelease)
       {
-        Serial.print(" and done.");
+//        Serial.print(" and done.");
         buttonPressed = false;
         repeatsLeft = 0;
         buttonCommand = 0;
       }
       
-      Serial.println("");     
+//      Serial.println("");     
     }
 
     timer++;   
-    if (timer == 4000) timer = 0; 
+    if (timer == 1000) 
+    {
+      //longtimer++;
+      if (!irReady) //If the IR is still sending, do another check to see if it's finished yet...
+      {
+        irReady = !IRSender.isSending();
+      }
+      timer = 0;
+      
+    }
 
 }

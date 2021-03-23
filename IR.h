@@ -13,8 +13,8 @@
 
 //NEC IR PROTOCOL:
 
-#define MICROS_PER_TICK 560
-#define TICKS_PER_UNIT 1 //Unit is 560us ~= 21.5 half ticks.
+#define MICROS_PER_TICK 563
+#define TICKS_PER_UNIT 1 //Unit is 562.5us
 
 #define IR_STATE_NONE 0
 #define IR_STATE_HEADER 1
@@ -29,10 +29,10 @@
 #define TICKS_MARK_HEADER (TICKS_PER_UNIT * 16) //9ms
 
 #define TICKS_TOTAL_ONE (TICKS_PER_UNIT * 4) //2.25ms
-#define TICKS_MARK_ONE (TICKS_PER_UNIT)     //560us
+#define TICKS_MARK_ONE (TICKS_PER_UNIT)     //562.5us
 
 #define TICKS_TOTAL_ZERO (TICKS_PER_UNIT * 2) //1.12ms
-#define TICKS_MARK_ZERO (TICKS_PER_UNIT)     //560us
+#define TICKS_MARK_ZERO (TICKS_PER_UNIT)     //562.5us
 
 #define TICKS_TOTAL_TAIL (TICKS_PER_UNIT)
 #define TICKS_MARK_TAIL (TICKS_PER_UNIT)
@@ -40,7 +40,7 @@
 #define TICKS_TOTAL_REPEAT (TICKS_PER_UNIT * 20) //11.25ms
 #define TICKS_MARK_REPEAT (TICKS_PER_UNIT * 4) //2.25ms
 
-#define TICKS_PER_COMMAND (TICKS_PER_UNIT * 197) //110ms
+#define TICKS_PER_COMMAND (TICKS_PER_UNIT * 192) //108ms
 
 union LongUnion
 {
@@ -61,6 +61,9 @@ union LongUnion
 
 class IRSenderClass {
 
+  private:
+    bool sending = false;
+
   public:
 
     IRSenderClass();
@@ -69,13 +72,12 @@ class IRSenderClass {
     void enableSending();
     void disableSending();
 
-    
-
+   
     void send(uint16_t address, uint8_t command);
     void sendRepeat();
     
     uint8_t sendPin;
-    bool carrierPulse = false;
+    
 
     uint8_t  dataBuffer[256];
     volatile uint8_t dataReadCursor = 0;
@@ -88,6 +90,7 @@ class IRSenderClass {
     
     void tick();
 
+    bool isSending();
     void setCommand();
     void setNextState();
     void writeData(uint8_t data[], uint8_t len);
